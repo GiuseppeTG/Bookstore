@@ -1,22 +1,10 @@
 import React from 'react';
 import './BookList.scss';
+import { useSelector, shallowEqual } from 'react-redux';
 import Book from '../book/Book';
 
 export default function BookList() {
-  const books = [
-    {
-      title: 'The Hunger Games',
-      author: 'Suzanne Collins',
-    },
-    {
-      title: 'Dune',
-      author: 'Frank Herbert',
-    },
-    {
-      title: 'Caoital in the Twenty-First Century',
-      author: 'Suzanne Collins',
-    },
-  ];
+  const books = useSelector((state) => state.books, shallowEqual);
 
   return (
     <div className="book-list-container">
@@ -24,10 +12,8 @@ export default function BookList() {
       <ul className="book-list">
         {books.map((book) => (
           <Book
-            title={book.title}
             key={book.id}
             book={book}
-            author={book.author}
           />
         ))}
       </ul>
