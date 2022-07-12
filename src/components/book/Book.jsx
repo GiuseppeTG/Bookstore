@@ -23,6 +23,5 @@ export default function book({ book }) {
         </li>
       </ul>
     </div>
-
   );
 }
