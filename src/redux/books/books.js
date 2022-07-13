@@ -1,24 +1,10 @@
+const API_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/I6mfoYnGeABBcZ3LwXcr/books';
 // Actions
 
+const GET_BOOKS = 'bookstore/books/GET_BOOK';
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
-const initialState = [
-  {
-    title: 'book 1',
-    author: 'author 1',
-    id: 1,
-  },
-  {
-    title: 'book 2',
-    author: 'author 2',
-    id: 2,
-  },
-  {
-    title: 'book 3',
-    author: 'author 3',
-    id: 3,
-  },
-];
+const initialState = [];
 
 // Reducer
 
@@ -27,7 +13,9 @@ export default function booksReducer(state = initialState, action = {}) {
     case ADD_BOOK:
       return [...state, action.payload];
     case REMOVE_BOOK:
-      return state.filter((book) => book.id !== action.payload);
+      return state.filter((book) => book.item_id !== action.payload);
+    case GET_BOOKS:
+      return action.payload;
     default:
       return state;
   }
@@ -35,14 +23,43 @@ export default function booksReducer(state = initialState, action = {}) {
 
 // Action creators
 
-const addBook = (book) => ({
-  type: ADD_BOOK,
-  payload: book,
-});
+function getBooks() {
+  return async (dispatch) => {
+    const response = await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/I6mfoYnGeABBcZ3LwXcr/books');
+    const data = await response.json();
+    const books = [];
+    Object.keys(data).forEach((e) => {
+      books.push({ ...data[e][0], item_id: e });
+    });
+    dispatch({
+      type: GET_BOOKS,
+      payload: books,
+    });
+  };
+}
 
-const removeBook = (id) => ({
-  type: REMOVE_BOOK,
-  payload: id,
-});
+const addBook = (book) => async (dispatch) => {
+  await fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(book),
+  });
+  dispatch({
+    type: ADD_BOOK,
+    payload: book,
+  });
+};
 
-export { addBook, removeBook };
+const removeBook = (id) => async (dispatch) => {
+  await fetch(`${API_URL}/${id}`, {
+    method: 'DELETE',
+  });
+  dispatch({
+    type: REMOVE_BOOK,
+    payload: id,
+  });
+};
+
+export { addBook, removeBook, getBooks };

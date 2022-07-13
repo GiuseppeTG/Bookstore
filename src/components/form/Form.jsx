@@ -22,14 +22,16 @@ export default function Form() {
     <div className="form-container">
       <h2>ADD A NEW BOOK</h2>
       <form
-        onSubmit={() => {
+        onSubmit={(e) => {
           dispatch(addBook(
             {
+              item_id: uuidv4(),
               title: bookTitle,
               author: bookAuthor,
-              id: uuidv4(),
+              category: 'action',
             },
           ));
+          e.preventDefault();
         }}
       >
 

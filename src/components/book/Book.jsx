@@ -13,7 +13,7 @@ export default function book({ book }) {
         <li>
           <button
             onClick={() => {
-              dispatch(removeBook(book.id));
+              dispatch(removeBook(book.item_id));
             }}
             type="button"
             className="remove-btn"
