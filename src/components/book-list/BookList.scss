@@ -1,5 +1,17 @@
+@import '../../scss-variables.scss';
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.book-list {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2.5rem;
+  gap: 1rem;
+  border-bottom: solid 4px #e8e8e8;
+  max-width: 1000px;
+  margin: 0 auto;
 }

@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import { addBook } from '../../redux/books/books';
+import './Form.scss';
 
 export default function Form() {
   const [bookTitle, setBookTitle] = useState('');
@@ -20,7 +21,7 @@ export default function Form() {
 
   return (
     <div className="form-container">
-      <h2>ADD A NEW BOOK</h2>
+      <h2>ADD NEW BOOK</h2>
       <form
         onSubmit={(e) => {
           dispatch(addBook(
@@ -28,9 +29,11 @@ export default function Form() {
               item_id: uuidv4(),
               title: bookTitle,
               author: bookAuthor,
-              category: 'action',
+              category: 'Distopic',
             },
           ));
+          titleInput.value = '';
+          authorInput.value = '';
           e.preventDefault();
         }}
       >
@@ -42,6 +45,7 @@ export default function Form() {
           placeholder="Book title"
           value={bookTitle}
           onChange={(e) => handleTitle(e)}
+          required
         />
 
         <input
@@ -51,9 +55,10 @@ export default function Form() {
           placeholder="Book author"
           value={bookAuthor}
           onChange={(e) => handleAuthor(e)}
+          required
         />
 
-        <button type="submit">ADD BOOK</button>
+        <button className="add-button" type="submit">ADD BOOK</button>
       </form>
     </div>
   );

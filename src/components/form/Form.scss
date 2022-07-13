@@ -1,5 +1,63 @@
+@import '../../scss-variables.scss';
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+form {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-container {
+  padding: 2.5rem 0;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.form-container h2 {
+  color: $gray;
+  font-family: $montserrat;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.form-container input {
+  height: 2.8rem;
+  border: #e8e8e8 solid 2px;
+  border-radius: 0.25rem;
+  padding: 0 1rem;
+  font-family: $montserrat;
+  font-size: 1rem;
+  outline-color: $blue1;
+}
+
+.form-container input::placeholder {
+  font-family: $montserrat;
+  font-size: 1rem;
+  color: #cecece;
+}
+
+.add-button {
+  height: 2.8rem;
+  background-color: $blue1;
+  color: white;
+  padding: 0 1rem;
+  font-family: $roboto;
+  font-weight: 300;
+  border: none;
+  border-radius: 0.25rem;
+  width: 20%;
+}
+
+.title-input {
+  width: 50%;
+}
+
+.author-input {
+  width: 30%;
 }
