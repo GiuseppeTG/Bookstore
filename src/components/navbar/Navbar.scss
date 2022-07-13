@@ -1,5 +1,56 @@
+@import '../../scss-variables.scss';
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+nav {
+  padding: 0 6.25rem;
+  display: flex;
+  height: 75px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 0 0 4px 0 rgba(17, 16, 16, 0.713);
+}
+
+.logo-and-links {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.logo-text {
+  font-family: $montserrat;
+  font-weight: bold;
+  font-size: 1.875rem;
+  color: $blue1;
+}
+
+.links {
+  font-family: $montserrat;
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.link {
+  text-decoration: none;
+  color: $black1;
+}
+
+.user-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 4px solid $pink;
+  outline-offset: 1rem;
+  border-radius: 50%;
+  font-size: 1.7rem;
+}
+
+.torso {
+  color: $blue1;
 }
