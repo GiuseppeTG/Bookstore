@@ -8,6 +8,7 @@
 - Add a book.
 - Remove a selected book.
 
+![App screenshot](./src/images/screenshot.png)
 
 ## Built With
 
