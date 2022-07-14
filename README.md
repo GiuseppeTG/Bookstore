@@ -8,6 +8,7 @@
 - Add a book.
 - Remove a selected book.
 
+![App screenshot](./src/images/screenshot.png)
 
 ## Built With
 
@@ -15,9 +16,9 @@
 - Frameworks: React.js
 - Technologies used: VSC, Git, GitHub, Gitflow, Chrome.
 
-## Live Demo (if available)
+## Live Demo
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link]([https://livedemo.com](https://62d049c528f3e02294bc7bd4--jade-sprinkles-8acc06.netlify.app/))
 
 
 ## Getting Started
@@ -58,12 +59,6 @@ Feel free to check the [issues page](../../issues/).
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
 
 ## 📝 License
 
