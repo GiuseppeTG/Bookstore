@@ -75,28 +75,6 @@
   align-self: center;
 }
 
-.circle {
-  width: 4.25rem;
-  height: 4.25rem;
-  border: solid 6px;
-  border-radius: 50%;
-  border-color: $pink $blue1 $blue1 $blue1;
-  transform: rotate(-45deg);
-}
-
-.completed-number {
-  font-family: $montserrat;
-  font-size: 2rem;
-  font-weight: 200;
-  color: $black1;
-}
-
-.completed {
-  color: $gray;
-  font-size: 0.875rem;
-  font-weight: 200;
-}
-
 span {
   height: 100px;
   width: 3px;
@@ -125,7 +103,7 @@ span {
 .blue-button {
   height: 2rem;
   background-color: $blue1;
-  color: white;
+  color: rgb(255, 255, 255);
   padding: 0 1rem;
   font-family: $roboto;
   font-weight: 300;

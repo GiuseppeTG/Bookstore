@@ -1,9 +1,12 @@
 import React from 'react';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../../redux/books/books';
 import './Book.scss';
+import 'react-circular-progressbar/dist/styles.css';
 
 export default function book({ book }) {
+  const done = '30';
   const dispatch = useDispatch();
   return (
     <div className="book-container">
@@ -33,12 +36,15 @@ export default function book({ book }) {
           </li>
         </ul>
       </div>
-      <div className="progress">
-        <div className="circle" />
-        <div className="progress-info">
-          <p className="completed-number">75%</p>
-          <p className="completed">Completed</p>
-        </div>
+      <div className="progress" style={{ width: 100, height: 100 }}>
+        <CircularProgressbar
+          value={done}
+          text={`${done}%`}
+          styles={buildStyles({
+            pathColor: '#0290ff',
+            textColor: 'black',
+          })}
+        />
       </div>
       <span />
       <div className="chapter-info">
