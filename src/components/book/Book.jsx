@@ -14,8 +14,6 @@ export default function book({ book }) {
 
   const [chaptersCompleted, setChaptersCompleted] = useState(() => randomChapter());
 
-  console.log(`${chapters}/${chaptersCompleted}`);
-
   function incrementCount() {
     setChaptersCompleted((prevCount) => {
       if (prevCount === 50) return prevCount;
