@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../../redux/books/books';
@@ -6,8 +6,26 @@ import './Book.scss';
 import 'react-circular-progressbar/dist/styles.css';
 
 export default function book({ book }) {
-  const done = '30';
+  const chapters = 50;
+
+  function randomChapter() {
+    return Math.floor(Math.random() * (chapters + 1));
+  }
+
+  const [chaptersCompleted, setChaptersCompleted] = useState(() => randomChapter());
+
+  console.log(`${chapters}/${chaptersCompleted}`);
+
+  function incrementCount() {
+    setChaptersCompleted((prevCount) => {
+      if (prevCount === 50) return prevCount;
+      return prevCount + 1;
+    });
+  }
   const dispatch = useDispatch();
+
+  const done = (100 / chapters) * chaptersCompleted;
+
   return (
     <div className="book-container">
       <div className="book-info">
@@ -49,8 +67,14 @@ export default function book({ book }) {
       <span />
       <div className="chapter-info">
         <h3>CURRENT CHAPTER</h3>
-        <h2>Chapter 7</h2>
-        <button className="blue-button" type="button">UPDATE PROGRESS</button>
+        <h2>{chaptersCompleted.toString()}</h2>
+        <button
+          className="blue-button"
+          type="button"
+          onClick={incrementCount}
+        >
+          UPDATE PROGRESS
+        </button>
       </div>
     </div>
   );
