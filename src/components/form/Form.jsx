@@ -7,14 +7,19 @@ import './Form.scss';
 export default function Form() {
   const [bookTitle, setBookTitle] = useState('');
   const [bookAuthor, setBookAuthor] = useState('');
+  const [bookCategory, setBookCategory] = useState('');
   const titleInput = useRef();
   const authorInput = useRef();
+  const categoryInput = useRef();
 
   const handleTitle = (e) => {
     setBookTitle(e.target.value);
   };
   const handleAuthor = (e) => {
     setBookAuthor(e.target.value);
+  };
+  const handleCategory = (e) => {
+    setBookCategory(e.target.value);
   };
 
   const dispatch = useDispatch();
@@ -29,11 +34,9 @@ export default function Form() {
               item_id: uuidv4(),
               title: bookTitle,
               author: bookAuthor,
-              category: 'Distopic',
+              category: bookCategory,
             },
           ));
-          titleInput.value = '';
-          authorInput.value = '';
           e.preventDefault();
         }}
       >
@@ -58,6 +61,15 @@ export default function Form() {
           required
         />
 
+        <input
+          ref={categoryInput}
+          type="text"
+          className="category-input"
+          placeholder="Book category"
+          value={bookCategory}
+          onChange={(e) => handleCategory(e)}
+          required
+        />
         <button className="add-button" type="submit">ADD BOOK</button>
       </form>
     </div>
