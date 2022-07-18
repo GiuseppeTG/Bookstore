@@ -18,7 +18,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://livedemo.com](https://62d049c528f3e02294bc7bd4--jade-sprinkles-8acc06.netlify.app/)
+[Live Demo Link](https://dev--jade-sprinkles-8acc06.netlify.app/)
 
 
 ## Getting Started
